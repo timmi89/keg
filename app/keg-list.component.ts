@@ -1,6 +1,8 @@
 import { Component, EventEmitter} from 'angular2/core';
 import { KegComponent } from './keg.component';
 import { Keg } from './keg.model';
+import { EditKegDetailsComponent } from './edit-keg-details.component';
+
 
 // CHILD component based on parent component.
 //selector: html element which will be used in parent template so it knows where to load the components kegList array
@@ -11,7 +13,7 @@ import { Keg } from './keg.model';
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  directives: [KegComponent],
+  directives: [KegComponent, EditKegDetailsComponent],
   template: `<keg-display *ngFor="#currentKeg of kegList"
   (click)="kegClicked(currentKeg)"
   [class.selected]= "currentKeg === selectedKeg"
